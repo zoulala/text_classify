@@ -1,8 +1,9 @@
 from sklearn import svm,tree,linear_model
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from data_process import TextConverter
+from read_utils import TextConverter
 
 train_files = '../data/cnews.train.txt'
+val_files = '../data/cnews.val.txt'
 test_files = '../data/cnews.test.txt'
 save_file = 'cnews.vocab_label.pkl'
 
@@ -13,8 +14,8 @@ print(converter.label)
 train_texts, train_labels = converter.load_data(train_files)
 # train_x, train_y = converter.texts_to_arr(train_texts, train_labels)
 
-val_texts, val_labels = converter.load_data(train_files)
-# val_x, val_y = converter.texts_to_arr(train_texts, train_labels)
+val_texts, val_labels = converter.load_data(val_files)
+# val_x, val_y = converter.texts_to_arr(val_texts, val_labels)
 
 test_texts, test_labels = converter.load_data(test_files)
 # test_x, test_y = converter.texts_to_arr(test_texts, test_labels)
